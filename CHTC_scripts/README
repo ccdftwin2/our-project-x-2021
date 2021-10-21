@@ -1,0 +1,7 @@
+###############################################################################
+Here is a readme for the CHTC scripts needed to get things to run on the CHTC. 
+Note that these scripts are where the hyperparameters are swept over and should 
+call many python scripts.
+###############################################################################
+
+toy_model: folder that contains the CHTC scripts/files for the toy models

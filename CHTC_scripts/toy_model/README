@@ -1,0 +1,5 @@
+##########################3
+README for the toy model CHTC scripts. The files in here are listed below, as
+well as what they do is described. Further, if you are confused about how to
+make the CHTC hyperparameter sweeps work, this can be used as a model.
+##########################
