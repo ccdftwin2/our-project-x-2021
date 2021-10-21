@@ -1,0 +1,10 @@
+######################################################
+Readme for the models folder- will have a list of the different types of 
+models (a folder for each type just to keep things straight). Optimally,
+we make the models a "function" so that we can pair different models 
+with different datasets, and don't need to be referencing file paths 
+to datasets in these models. A overall script can manage choosing the dataset(s),
+model(s), and evaluation methods.
+#####################################################
+
+

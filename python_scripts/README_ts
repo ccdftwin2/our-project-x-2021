@@ -1,0 +1,8 @@
+###############################################################3
+Here is a readme for the driver scripts. This will contain the 
+scripts that we use to manage the training of the models (whether just 
+single scripts or in batches). We will be importing datasets, models, and
+evaluation metrics that are run in these scripts.
+###############################################################
+
+toy_script: Example script for the toy model.

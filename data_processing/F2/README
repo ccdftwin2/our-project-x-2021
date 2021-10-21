@@ -1,0 +1,6 @@
+###############################################################################
+Here is a README for the dataprocessing scripts for the F2 mice. There will 
+probably be subfolders listed below for different organs, normalizations, etc.
+##############################################################################
+
+toy: folder for the data preprocessing function required for the toy model.

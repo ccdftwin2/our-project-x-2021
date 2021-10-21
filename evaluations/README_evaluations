@@ -1,0 +1,10 @@
+########################################################
+README for the evaluation scripts that we need. Again, the goal is to make them
+act as "functions" (inputs discussed below) to make it easy to run multiple things 
+with each other. That being said, would be a good idea to make different folders
+for each type of evaluation (RMSE, mathews, etc) in case different models need
+different scripts for the same evaluation type.
+########################################################
+
+F2: Folder for evalutaions on the F2 mice.
+parents: Folder for evaluations on the parent dataset.
