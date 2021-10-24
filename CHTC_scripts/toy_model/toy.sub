@@ -1,0 +1,39 @@
+# toy.sub
+# Toy HTCondor submit file
+# ALL FILES IN HERE MUST HAVE PATHS TO HOME, NOT IN STAGING
+
+# TODO: Specify the HTCondor Universe (vanilla is the default and is used
+#  for almost all jobs) and your desired name of the HTCondor log file,
+#  which is where HTCondor will describe what steps it takes to run 
+universe = vanilla
+log = toy_$(Cluster).log
+
+# TODO: Specify your executable (single binary or a script that runs several
+#  commands), arguments, and a files for HTCondor to store standard
+#  output (or "screen output").
+#  $(Process) will be a integer number for each job, starting with "0"
+#  and increasing for the relevant number of jobs.
+#  TODO: If you don't want your working directory to be clogged, make your own file output directory
+executable = toy.sh
+arguments = $(Process)
+output = toy_$(Cluster)_$(Process).out
+error = toy_$(Cluster)_$(Process).err
+
+# Specify that HTCondor should transfer files to and from the
+#  computer where each job runs. The last of these lines *would* be
+#  used if there were any other files needed for the executable to use.
+#  DO NOT USE THIS FOR THE LARGE INPUT FILES, MANAGED IN EXECUTABLE
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+# transfer_input_files = file1,/absolute/pathto/file2,etc
+
+# TODO: Tell HTCondor what amount of compute resources
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1MB
+
+# DONT CHANGE BUT NEEDED
+Requirements = (Target.HasCHTCStaging == true)
+
+# Tell HTCondor to run 1 instances of our job:
+queue 1
