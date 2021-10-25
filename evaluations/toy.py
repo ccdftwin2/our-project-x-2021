@@ -6,15 +6,8 @@ def pearson_corr(y_true, y_pred):
     
     return tfp.stats.correlation(y_true,y_pred)
 
-from scipy.stats import spearmanr
+# REQUIRES: from scipy.stats import spearmanr
 def spearman_rankcor(y_true, y_pred):
      return ( tf.py_function(spearmanr, [tf.cast(y_pred, tf.float32), 
                        tf.cast(y_true, tf.float32)], Tout = tf.float32) )
-
-metrics=[
-        #"MeanSquaredError",
-         "MeanAbsolutePercentageError",
-         spearman_rankcor,
-         pearson_corr
-    ]
 
