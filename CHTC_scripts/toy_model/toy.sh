@@ -14,23 +14,29 @@ ENVDIR=$ENVNAME
 # these lines handle setting up the environment; you shouldn't have to modify them
 export PATH
 mkdir $ENVDIR
-tar -xzf $ENVNAME.tar.gz -C $ENVDIR
-. $ENVDIR/bin/activate
+#tar -xzf $ENVNAME.tar.gz -C $ENVDIR
+#. $ENVDIR/bin/activate
 
 # END MANAGE CONDA ENVIRONMENT
 
 # TODO: MANAGE LARGE INPUT FILES and submit
 # First, copy the compressed tar file from /staging into the working directory,
 #  and un-tar it to reveal your large input file(s) or directories:
-cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy.tar.gz ./
-tar -xzvf toy.tar.gz
+cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
+cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
+tar -xzvf toy_fin.tar.gz
+tar -xzf $ENVNAME.tar.gz -C $ENVDIR
+. $ENVDIR/bin/activate
 
-# Command for myprogram, which will use files from the working directory
-./myprogram large_input.txt myoutput.txt
+# TODO: Command for myprogram, which will use files from the working directory
+./toy # list the data files needed? 
 #
-# Before the script exits, make sure to remove the file(s) from the working directory
+# TODO: Before the script exits, make sure to remove the file(s) from the working directory
 rm toy_fin.tar.gz ./toy/* 
 rm -rf ./toy
+rm $ENVNAME.tar.gz
+rm -rf ./$ENVDIR
+
 # END MANGE LARGE INPUT FILES
 
 # MANAGE LARGE OUTPUT FILES (if needed- dont modify but use as example above- for saving model weights)
