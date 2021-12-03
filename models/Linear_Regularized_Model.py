@@ -11,7 +11,7 @@ class toy_model:
         self.test_result
         
     # Model creation
-    def create_model():
+    def create_model(self):
     
         # Encoder gene expression data
         gene_encoder = layers.Input(shape=self.gene_input_shape, name='gene_input')
@@ -29,11 +29,11 @@ class toy_model:
         return model
         
     # Training parameters
-    def compile(loss = 'MeanSquaredError',opt="adam",metrics = self.metrics):
+    def compile(self,loss = 'MeanSquaredError',opt="adam",metrics = self.metrics):
         self.model.compile(loss='MeanSquaredError', optimizer=opt, metrics=metrics)
              
     # Train
-    def fit(X_train,y_train,X_val,y_val):
+    def fit(self,X_train,y_train,X_val,y_val):
         # Early stop call back
         callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
         callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
@@ -45,14 +45,14 @@ class toy_model:
           )
           
     # Test
-    def evaluate(X_test, y_test, verbose=1):
+    def evaluate(self,X_test, y_test, verbose=1):
         self.test_result = self.model.evaluate(X_test, y_test, verbose=1)
         
         
     # Evaluation Metric
-    def pearson_corr(y_true, y_pred):   
-        return tfp.stats.correlation(y_true,y_pred)
+def pearson_corr(y_true, y_pred):   
+    return tfp.stats.correlation(y_true,y_pred)
 
-    def spearman_rankcor(y_true, y_pred):
-        return ( tf.py_function(spearmanr, [tf.cast(y_pred, tf.float32), 
-                       tf.cast(y_true, tf.float32)], Tout = tf.float32) )
+def spearman_rankcor(y_true, y_pred):
+    return ( tf.py_function(spearmanr, [tf.cast(y_pred, tf.float32), 
+                  tf.cast(y_true, tf.float32)], Tout = tf.float32) )

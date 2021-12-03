@@ -21,3 +21,4 @@ def toy_model(gene_input_shape):
   model = tf.keras.Model(inputs=[gene_encoder,sex_encoder], outputs=[output])
 
   return model
+
