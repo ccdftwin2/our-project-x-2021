@@ -69,3 +69,46 @@ def toy_preprocess(hypo_int2_final, F2_BTBR_clinic):
 
     return X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test
 
+def five_tissues_preprocess(path_to_combined, path_to_glucose, path_to_sex):
+
+    df_adi = pd.read_csv(path_to_combined, index_col = False, header=None)
+    df_adi_gluc = pd.read_csv(path_to_glucose, header=None)
+    df_adi_sex = pd.read_csv(path_to_sex, header=None)
+    
+    X = np.array(df_adi, dtype="float")
+    y = np.array(df_adi_gluc, dtype="float")
+    y = y[~np.isnan(X).any(axis=1)]
+    sex = np.array(df_adi_sex)
+    sex = sex[~np.isnan(X).any(axis=1)]
+    X = X[~np.isnan(X).any(axis=1)]
+    
+    # Cross Validation
+    indices = [] # CV indices
+
+    skf_train_test = StratifiedKFold(n_splits=6, shuffle=False)
+    for index1 in skf_train_test.split(X,sex):
+        X_temp = [X[i] for i in index1[0]]
+        sex_temp = [sex[i] for i in index1[0]]
+        skf_train_val = StratifiedKFold(n_splits=5, shuffle=False)
+        for index2 in skf_train_val.split(X_temp,sex_temp):
+            tvt = list(index2)
+            tvt.append(index1[1])
+            indices.append(tvt) # Represent (train:test:val)
+
+    #print(len(indices)," Combinations, Train: ",len(indices[1][0])," Test: ", len(indices[1][1])," Val: ",len(indices[1][2]))
+
+    # Split the train, test, validation datasets
+    X_train = np.array([X[i] for i in indices[0][0]])
+    sex_train = np.array([sex[i] for i in indices[0][0]])
+    y_train = np.array([y[i] f:or i in indices[0][0]])[:,-1]
+
+    X_val = np.array([X[i] for i in indices[0][1]])
+    sex_val = np.array([sex[i] for i in indices[0][1]])
+    y_val = np.array([y[i] for i in indices[0][1]])[:,-1]
+
+    X_test = np.array([X[i] for i in indices[0][2]])
+    sex_test = np.array([sex[i] for i in indices[0][2]])
+    y_test = np.array([y[i] for i in indices[0][2]])[:,-1]
+
+    return X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test
+    
