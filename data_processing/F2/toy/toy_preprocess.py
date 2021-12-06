@@ -100,15 +100,15 @@ def five_tissues_preprocess(path_to_combined, path_to_glucose, path_to_sex):
     # Split the train, test, validation datasets
     X_train = np.array([X[i] for i in indices[0][0]])
     sex_train = np.array([sex[i] for i in indices[0][0]])
-    y_train = np.array([y[i] f:or i in indices[0][0]])[:,-1]
+    y_train = np.array([y[i] f:or i in indices[0][0]])
 
     X_val = np.array([X[i] for i in indices[0][1]])
     sex_val = np.array([sex[i] for i in indices[0][1]])
-    y_val = np.array([y[i] for i in indices[0][1]])[:,-1]
+    y_val = np.array([y[i] for i in indices[0][1]])
 
     X_test = np.array([X[i] for i in indices[0][2]])
     sex_test = np.array([sex[i] for i in indices[0][2]])
-    y_test = np.array([y[i] for i in indices[0][2]])[:,-1]
+    y_test = np.array([y[i] for i in indices[0][2]])
 
     return X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test
     
