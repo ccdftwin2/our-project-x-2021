@@ -21,6 +21,7 @@ cwd = os.getcwd()
 
 # For the toy dataprocessing
 from toy_preprocess import toy_preprocess
+from toy_preprocess import five_tissues_preprocess
 
 # For the toy model script
 from regularized_toy_model import re_toy_model
@@ -38,9 +39,9 @@ os.chdir(cwd)
 # TODO: Run the preprocessing script to get the dataset
 # The data paths will be IN THE CURRENT WORKING DIRECTORY (see toy.sh)
 # Will have lots of outputs if using cross-validation
-X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test \
-    = toy_preprocess(cwd + '/toy/F2_B6_BTBR_OB_mice_clinic_traits.csv', cwd + '/toy/hypo_mlratio_final.csv')
 
+X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test \
+    = five_tissues_preprocess(cwd + '/toy/combined_mlratio_clean.csv', cwd + '/toy/combined_mlratio_clean_gluc.csv', cwd + '/toy/combined_mlratio_clean_sex.csv')
 #########################################################################################################
 
 
