@@ -20,15 +20,12 @@ cwd = os.getcwd()
 #from file2 import function2, function3
 
 # For the toy dataprocessing
-os.chdir(cwd + '/../data_processing/F2/toy/')
 from toy_preprocess import toy_preprocess
 
 # For the toy model script
-os.chdir(cwd + '/../models/')
 from regularized_toy_model import re_toy_model
 
 # For the toy evaluations scripts
-os.chdir(cwd + '/../evaluations/toy_eval/')
 from toy_eval import pearson_corr, spearman_rankcor
 
 # Change back to the current working directory
