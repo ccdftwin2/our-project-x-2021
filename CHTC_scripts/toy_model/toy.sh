@@ -7,7 +7,7 @@ set -e
 
 # TODO: MANAGE THE CONDA ENVIRONMENT
 # replace env-name on the right hand side of this line with the name of your conda environment
-ENVNAME=env-name
+ENVNAME=pythonX4
 # if you need the environment directory to be named something other than the environment name, change this line
 ENVDIR=$ENVNAME
 
@@ -28,9 +28,10 @@ tar -xzvf toy_fin.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
-# TODO: Command for myprogram, which will use files from the working directory
-./toy # list the data files needed? 
-#
+
+# Run the Python script, the 1,2, ... are the arguments from the .sub file
+python3 toy_driver.py $1 $2 
+
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
 rm toy_fin.tar.gz ./toy/* 
 rm -rf ./toy
