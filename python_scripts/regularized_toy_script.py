@@ -41,7 +41,7 @@ os.chdir(cwd)
 # Will have lots of outputs if using cross-validation
 
 X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test \
-    = five_tissues_preprocess(cwd + '/toy/combined_mlratio_clean.csv', cwd + '/toy/combined_mlratio_clean_gluc.csv', cwd + '/toy/combined_mlratio_clean_sex.csv')
+    = five_tissues_preprocess(cwd + '/combined/combined_mlratio_clean.csv', cwd + '/combined/combined_mlratio_clean_gluc.csv', cwd + '/combined/combined_mlratio_clean_sex.csv')
 #########################################################################################################
 
 

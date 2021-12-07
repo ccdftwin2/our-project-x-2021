@@ -31,11 +31,11 @@ when_to_transfer_output = ON_EXIT
 
 # TODO: Tell HTCondor what amount of compute resources
 request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
+request_memory = 4GB
+request_disk = 4GB
 
 # DONT CHANGE BUT NEEDED
 Requirements = (Target.HasCHTCStaging == true)
 
 # Tell HTCondor to run 1 instances of our job:
-queue layer_num,layer_size from #PATH/TO/INPUTFILE.txt
+queue layer_num,layer_size from INPUTFILE.txt
