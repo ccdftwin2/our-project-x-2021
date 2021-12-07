@@ -27,12 +27,12 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # LIST ABSOLUTE PATH OF ALL THE PYTHON FILES YOU NEED TO HERE TODO
-transfer_input_files = /home/hlin324/ProjectX2021/python_scripts/regularized_toy_script.py, /home/hlin324/ProjectX2021/models/regularized_toy_model.py, /home/hlin324/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/hlin324/ProjectX2021/evaluations/toy.py
+transfer_input_files = /home/hlin324/ProjectX2021/python_scripts/regularized_toy_script.py, /home/hlin324/ProjectX2021/models/regularized_toy_model.py, /home/hlin324/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/hlin324/ProjectX2021/evaluations/toy_eval.py
 
 # TODO: Tell HTCondor what amount of compute resources
 request_cpus = 1
 request_memory = 4GB
-request_disk = 4GB
+request_disk = 8GB
 
 # DONT CHANGE BUT NEEDED
 Requirements = (Target.HasCHTCStaging == true)
