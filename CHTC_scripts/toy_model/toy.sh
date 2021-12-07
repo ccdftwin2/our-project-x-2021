@@ -25,7 +25,7 @@ mkdir $ENVDIR
 # cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/F2/combined/combined_raw.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
-tar -xzvf toy_fin.tar.gz
+tar -xzvf $ENVNAME.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
