@@ -14,7 +14,7 @@ log = toy_$(Cluster).log
 #  $(Process) will be a integer number for each job, starting with "0"
 #  and increasing for the relevant number of jobs.
 #  TODO: If you don't want your working directory to be clogged, make your own file output directory
-executable = toy.sh
+executable = combined.sh
 arguments = $(layer_num) $(layer_size)
 output = $(Cluster)_$(Process).out
 error = $(layer_num)_$(layer_size).err
