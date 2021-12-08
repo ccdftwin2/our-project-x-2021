@@ -1,3 +1,8 @@
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import KFold
+
 def toy_preprocess(hypo_int2_final, F2_BTBR_clinic):
     # Load the data
     dfx = pd.read_csv (hypo_int2_final,index_col=False)
@@ -24,8 +29,8 @@ def toy_preprocess(hypo_int2_final, F2_BTBR_clinic):
         i = dfy.index[dfy['Unnamed: 0'] == id].tolist()
         if len(i)!= 0:
             i = i[0]
-             y.append([dfy["Unnamed: 7"][i],dfy["Unnamed: 13"][i],dfy["Unnamed: 19"][i],dfy["Unnamed: 25"][i]])
-             sex.append(0 if dfy["Unnamed: 1"][i] == "M" else 1)
+            y.append([dfy["Unnamed: 7"][i],dfy["Unnamed: 13"][i],dfy["Unnamed: 19"][i],dfy["Unnamed: 25"][i]])
+            sex.append(0 if dfy["Unnamed: 1"][i] == "M" else 1)
 
     sex = np.array(sex,dtype=int)
     y = np.array(y,dtype=float)
@@ -57,11 +62,11 @@ def toy_preprocess(hypo_int2_final, F2_BTBR_clinic):
     # Split the train, test, validation datasets
     X_train = np.array([X[i] for i in indices[0][0]])
     sex_train = np.array([sex[i] for i in indices[0][0]])
-    y_train = np.array([y[i] for i in indices[0][0]])[:,-1])
+    y_train = np.array([y[i] for i in indices[0][0]])[:,-1]
 
     X_val = np.array([X[i] for i in indices[0][1]])
     sex_val = np.array([sex[i] for i in indices[0][1]])
-    y_val = np.array([y[i] for i in indices[0][1]])[:,-1])
+    y_val = np.array([y[i] for i in indices[0][1]])[:,-1]
 
     X_test = np.array([X[i] for i in indices[0][2]])
     sex_test = np.array([sex[i] for i in indices[0][2]])

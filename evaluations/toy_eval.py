@@ -2,6 +2,10 @@
 # do it but is one option.
 #
 
+import tensorflow as tf
+import tensorflow_probability as tfp
+from scipy.stats import spearmanr
+
 def pearson_corr(y_true, y_pred):
     
     return tfp.stats.correlation(y_true,y_pred)

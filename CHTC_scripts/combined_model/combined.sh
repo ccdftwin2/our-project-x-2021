@@ -25,6 +25,7 @@ mkdir $ENVDIR
 # cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/F2/combined/combined_raw.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
+tar -xzvf combined_raw.tar.gz
 tar -xzvf $ENVNAME.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
@@ -34,7 +35,7 @@ tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 python3 regularized_toy_script.py  $1 $2 
 
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
-rm toy_fin.tar.gz ./toy/* 
+rm combined_raw.tar.gz ./combined/* 
 rm -rf ./toy
 rm $ENVNAME.tar.gz
 rm -rf ./$ENVDIR

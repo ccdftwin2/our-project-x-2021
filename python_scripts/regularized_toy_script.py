@@ -65,7 +65,7 @@ callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 
 model.compile(loss='MeanSquaredError', optimizer="adam", metrics=metrics)
 model.fit(X_train, y_train, 
-          epochs=100, batch_size=100, verbose=1, 
+          epochs=100, batch_size=25, verbose=1, 
           validation_data=(X_val,y_val),
           callbacks=[callback_train,callback_val]
           )
