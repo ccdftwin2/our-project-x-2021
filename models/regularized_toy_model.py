@@ -1,11 +1,11 @@
 import tensorflow as tf
 from tensorflow.keras import layers
 
-def re_toy_model(gene_input_shape,drop_out_rate = 0.2, l2_r = 0.03):
+def re_toy_model(gene_input_shape,drop_out_rate = 0.3, l2_r = 0.5):
     
     # Encoder gene expression data
     gene_encoder = layers.Input(shape=gene_input_shape, name='gene_input')
-    gene_d1 = layers.Dense(30000, activation='relu',name='gene_d1',kernel_regularizer=tf.keras.regularizers.L2(l2_r))(gene_encoder)
+    gene_d1 = layers.Dense(10000, activation='relu',name='gene_d1',kernel_regularizer=tf.keras.regularizers.L2(l2_r))(gene_encoder)
     gene_d1 = layers.Dropout(drop_out_rate)(gene_d1)
     gene_d2 = layers.Dense(5000, activation='relu',name='gene_d2',kernel_regularizer=tf.keras.regularizers.L2(l2_r))(gene_d1)
     gene_d2 = layers.Dropout(drop_out_rate)(gene_d2)

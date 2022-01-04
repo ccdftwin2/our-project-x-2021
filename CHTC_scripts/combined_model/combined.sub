@@ -31,9 +31,12 @@ transfer_input_files = /home/hlin324/ProjectX2021/python_scripts/regularized_toy
 
 # TODO#: Tell HTCondor what amount of compute resources
 
-# request_gpus = 1
++WantGPULab = true
++GPUJobLength = "short"
+
+request_gpus = 1
 request_cpus = 8
-request_memory = 150GB
+request_memory = 120GB
 request_disk = 40GB
 
 # DONT CHANGE BUT NEEDED

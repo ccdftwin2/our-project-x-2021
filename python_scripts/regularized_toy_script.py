@@ -11,6 +11,7 @@ from scipy.stats import spearmanr
 
 # Variable for the current directory
 cwd = os.getcwd()
+print("AAA-------------------")
 
 #################### IMPORT THE FUNCTIONS WE NEED FROM MODEL AND EVALUATION TODO ####################
 #os.chdir("**Put here the directory where you have the file with your function**")
@@ -32,7 +33,7 @@ from toy_eval import pearson_corr, spearman_rankcor
 # Change back to the current working directory
 os.chdir(cwd)
 #########################################################################################################
-
+print("BBB-------------------")
 ########### TODO: Read in the arguments from the CHTC script. ###########################################
 # This will be important for hyperparameter tuning. No arguments for toy script.
 
@@ -62,7 +63,7 @@ metrics = [
 ############# Train the model TODO #####################################################################
 callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
 callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
-
+print("BEGIN TRAINING-------------------")
 model.compile(loss='MeanSquaredError', optimizer="adam", metrics=metrics)
 model.fit(X_train, y_train, 
           epochs=100, batch_size=25, verbose=1, 
@@ -73,8 +74,9 @@ model.fit(X_train, y_train,
 ########################################################################################################
 # Evaluate the model after training. TODO
 # Printing things will direct output to the .out file you specified in the CHTC submit script.
+print("Done training, begin testing:")
 test_results = model.evaluate(X_test, y_test, verbose=1)
-#print(f'Test results - Loss: {test_results[0]} - mean_absolute_percentage_error: {test_results[1]}')
+print(f'Test results - Loss: {test_results[0]} - mean_absolute_percentage_error: {test_results[1]}')
 
 ########################################################################################################
 
