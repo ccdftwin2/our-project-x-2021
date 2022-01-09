@@ -32,7 +32,7 @@ tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 
 
 # Run the Python script, the 1,2, ... are the arguments from the .sub file
-python3 regularized_toy_script.py  $1 $2 
+python3 regularized_toy_script.py  $1 $2 $3
 
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
 rm combined_raw.tar.gz ./combined/* 
