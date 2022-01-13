@@ -116,3 +116,21 @@ def five_tissues_preprocess(path_to_combined, path_to_glucose, path_to_sex):
 
     return X_train, sex_train, y_train, X_val, sex_val, y_val, X_test, sex_test, y_test
     
+def five_tissues_preprocess_cv(path_to_combined, path_to_glucose, path_to_sex):
+
+    df_adi = pd.read_csv(path_to_combined, index_col = False, header=None)
+    df_adi_gluc = pd.read_csv(path_to_glucose, header=None)
+    df_adi_sex = pd.read_csv(path_to_sex, header=None)
+    
+    X = np.array(df_adi, dtype="float")
+    y = np.array(df_adi_gluc, dtype="float")
+    y = y[~np.isnan(X).any(axis=1)]
+    sex = np.array(df_adi_sex)
+    sex = sex[~np.isnan(X).any(axis=1)]
+    X = X[~np.isnan(X).any(axis=1)]
+    
+    # Cross Validation
+    skf_train_test = StratifiedKFold(n_splits=6, shuffle=False)
+    indices = [index for index in skf_train_test.split(X,sex)]
+
+    return X, y ,sex, indices
