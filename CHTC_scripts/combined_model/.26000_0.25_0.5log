@@ -1,0 +1,45 @@
+000 (14691590.002.000) 2022-01-14 21:07:02 Job submitted from host: <128.105.244.191:9618?addrs=128.105.244.191-9618&alias=submit-1.chtc.wisc.edu&noUDP&sock=schedd_3562897_9248>
+...
+040 (14691590.002.000) 2022-01-14 21:07:19 Started transferring input files
+	Transferring to host: <128.105.68.76:9618?addrs=128.105.68.76-9618&alias=gpulab2005.chtc.wisc.edu&noUDP&sock=slot1_2_36649_492b_12198>
+...
+040 (14691590.002.000) 2022-01-14 21:07:19 Finished transferring input files
+...
+001 (14691590.002.000) 2022-01-14 21:07:20 Job executing on host: <128.105.68.76:9618?addrs=128.105.68.76-9618&alias=gpulab2005.chtc.wisc.edu&noUDP&sock=startd_10926_e7db>
+...
+006 (14691590.002.000) 2022-01-14 21:07:28 Image size of job updated: 36264
+	1  -  MemoryUsage of job (MB)
+	596  -  ResidentSetSize of job (KB)
+...
+006 (14691590.002.000) 2022-01-14 21:12:28 Image size of job updated: 99963260
+	52789  -  MemoryUsage of job (MB)
+	54055308  -  ResidentSetSize of job (KB)
+...
+006 (14691590.002.000) 2022-01-14 21:13:14 Image size of job updated: 119914096
+	53553  -  MemoryUsage of job (MB)
+	54837776  -  ResidentSetSize of job (KB)
+...
+040 (14691590.002.000) 2022-01-14 21:13:15 Started transferring output files
+...
+040 (14691590.002.000) 2022-01-14 21:13:23 Finished transferring output files
+...
+005 (14691590.002.000) 2022-01-14 21:13:32 Job terminated.
+	(1) Normal termination (return value 139)
+		Usr 0 00:06:08, Sys 0 00:09:50  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:06:08, Sys 0 00:09:50  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1392609024  -  Run Bytes Sent By Job
+	14521  -  Run Bytes Received By Job
+	1392609024  -  Total Bytes Sent By Job
+	14521  -  Total Bytes Received By Job
+	Partitionable Resources :      Usage  Request Allocated Assigned
+	   Cpus                 :       1.00       16        16 
+	   Disk (KB)            : 9257061    41943040  42757905 
+	   Gpus (Average)       :       0           2         2 "GPU-4ba1a6a3,GPU-fb408d80"
+	   GpusMemory (MB)      :       4                       
+	   IoHeavy              :                             0 
+	   Memory (MB)          :   53553      307200    307200 
+
+	Job terminated of its own accord at 2022-01-15T03:13:14Z with exit-code 139.
+...

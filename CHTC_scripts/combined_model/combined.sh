@@ -31,6 +31,8 @@ tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
 echo $1
+echo $2
+echo $3
 # Run the Python script, the 1,2, ... are the arguments from the .sub file
 python3 regularized_toy_script.py  $1 $2 $3
 

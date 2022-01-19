@@ -6,7 +6,7 @@
 #  for almost all jobs) and your desired name of the HTCondor log file,
 #  which is where HTCondor will describe what steps it takes to run 
 universe = vanilla
-log = toy_$(Cluster).log
+log = $(layer_num)_$(l2_r)_$(drop_out_rate).log
 label = /home/groups/schrodi_group/ProjectX2021/logs/F2/NN_combined
 
 # TODO: Specify your executable (single binary or a script that runs several

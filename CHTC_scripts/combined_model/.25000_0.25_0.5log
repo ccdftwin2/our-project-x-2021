@@ -1,0 +1,44 @@
+000 (14691590.001.000) 2022-01-14 21:07:02 Job submitted from host: <128.105.244.191:9618?addrs=128.105.244.191-9618&alias=submit-1.chtc.wisc.edu&noUDP&sock=schedd_3562897_9248>
+...
+040 (14691590.001.000) 2022-01-14 21:07:09 Started transferring input files
+	Transferring to host: <128.105.68.23:9618?addrs=128.105.68.23-9618&alias=gpulab2004.chtc.wisc.edu&noUDP&sock=slot1_1_7573_9d0d_67242>
+...
+040 (14691590.001.000) 2022-01-14 21:07:09 Finished transferring input files
+...
+001 (14691590.001.000) 2022-01-14 21:07:10 Job executing on host: <128.105.68.23:9618?addrs=128.105.68.23-9618&alias=gpulab2004.chtc.wisc.edu&noUDP&sock=startd_7286_2b1f>
+...
+006 (14691590.001.000) 2022-01-14 21:07:19 Image size of job updated: 36264
+	1  -  MemoryUsage of job (MB)
+	600  -  ResidentSetSize of job (KB)
+...
+006 (14691590.001.000) 2022-01-14 21:12:20 Image size of job updated: 108514692
+	73237  -  MemoryUsage of job (MB)
+	74993700  -  ResidentSetSize of job (KB)
+...
+006 (14691590.001.000) 2022-01-14 21:12:53 Image size of job updated: 113161128
+	73904  -  MemoryUsage of job (MB)
+	75676832  -  ResidentSetSize of job (KB)
+...
+040 (14691590.001.000) 2022-01-14 21:12:55 Started transferring output files
+...
+040 (14691590.001.000) 2022-01-14 21:13:03 Finished transferring output files
+...
+005 (14691590.001.000) 2022-01-14 21:13:04 Job terminated.
+	(1) Normal termination (return value 139)
+		Usr 0 00:06:02, Sys 0 00:08:23  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:06:02, Sys 0 00:08:23  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1392609024  -  Run Bytes Sent By Job
+	14521  -  Run Bytes Received By Job
+	1392609024  -  Total Bytes Sent By Job
+	14521  -  Total Bytes Received By Job
+	Partitionable Resources :      Usage  Request Allocated Assigned
+	   Cpus                 :       0.29       16        16 
+	   Disk (KB)            : 9257062    41943040  45422122 
+	   Gpus (Average)       :                   2         2 "MIG-115b4463-372e-5b55-811a-00fb1374034d,MIG-633563ce-cd57-5081-9386-c7a1b374a74d"
+	   IoHeavy              :                             0 
+	   Memory (MB)          :   73904      307200    307200 
+
+	Job terminated of its own accord at 2022-01-15T03:12:53Z with exit-code 139.
+...
