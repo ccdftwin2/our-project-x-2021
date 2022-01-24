@@ -22,7 +22,7 @@ cwd = os.getcwd()
 #from file2 import function2, function3
 
 # For the toy dataprocessing
-from toy_preprocess import toy_preprocess
+from individual_preprocess import toy_preprocess
 from toy_preprocess import five_tissues_preprocess,five_tissues_preprocess_cv
 
 # For the toy model script
@@ -58,6 +58,8 @@ num_layers = 4
 size_layers = []
 drop_out_rates = []
 patience = 3
+act = "linear"
+
 # Get the arguments
 if __name__ == "__main__":
     #print(f"Arguments count: {len(sys.argv)}")
@@ -96,7 +98,7 @@ X, y , sex , indices \
 
 ################ TODO: Import the model by calling a model function in models folder ####################
 gene_input_shape = (len(X[0]),)
-model = flex_nn_model(gene_input_shape,drop_out_rate,l2_r,unit_num)
+model = flex_nn_model(gene_input_shape, l2_r, drop_out_rates, act, num_layers, size_layers)
 #########################################################################################################
 
 
@@ -156,7 +158,7 @@ results = np.array(results)
 print("loss:", np.mean(results[:,0]),"abs%:", np.mean(results[:,1]),
 "spearman:", np.mean(results[:,2]),"pearson:", np.mean(results[:,3]))
 
-with open(str(int(unit_num)) + "_" +str(l2_r)+ "_" +str(drop_out_rate)+".csv", 'w+') as f:
+with open(run_id+".csv", 'w+') as f:
     # create the csv writer
     writer = csv.writer(f)
     writer.writerow(np.round(np.mean(results,axis=0),4))
@@ -164,7 +166,6 @@ with open(str(int(unit_num)) + "_" +str(l2_r)+ "_" +str(drop_out_rate)+".csv", '
         writer.writerow(np.round(res,4))
 
     # write a row to the csv file
-    
 ########################################################################################################
 
 ########################################################################################################
