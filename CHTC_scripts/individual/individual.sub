@@ -6,8 +6,7 @@
 #  for almost all jobs) and your desired name of the HTCondor log file,
 #  which is where HTCondor will describe what steps it takes to run 
 universe = vanilla
-log = logs/$(organ)/$(runID).log
-label = /home/groups/schrodi_group/ProjectX2021/logs/F2/NN_combined
+log = $(path)/$(run_id).log
 
 # TODO: Specify your executable (single binary or a script that runs several
 #  commands), arguments, and a files for HTCondor to store standard
@@ -15,10 +14,10 @@ label = /home/groups/schrodi_group/ProjectX2021/logs/F2/NN_combined
 #  $(Process) will be a integer number for each job, starting with "0"
 #  and increasing for the relevant number of jobs.
 #  TODO: If you don't want your working directory to be clogged, make your own file output directory
-executable = combined.sh
-arguments = $(data_exp) $(data_gluc) $(data_sex) $(momentum) $(l2_4) $(batch_size) $(learning_rate) $(optimizer) $(num_layers) $(run_id) $(patience) $(size_1) $(size_2) $(size_3) $(size_4) $(drop_1) $(drop_2) $(drop_3) $(drop_4)
-output = logs/$(organ)/$(runID).out
-error = logs/$(organ)/$(runID).err
+executable = individual.sh
+arguments = $(run_id) $(path) $(file) $(tissue)
+output = $(path)/$(run_id).out
+error = $(path)/$(run_id).err
 
 # Specify that HTCondor should transfer files to and from the
 #  computer where each job runs. The last of these lines *would* be
@@ -28,7 +27,7 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # LIST ABSOLUTE PATH OF ALL THE PYTHON FILES YOU NEED TO HERE TODO
-transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py
+transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/individual_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py, /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/$(tissue)/$(run_id)/$(run_id).in
 
 # TODO#: Tell HTCondor what amount of compute resources
 
@@ -45,4 +44,4 @@ request_disk = 20GB
 Requirements = (Target.HasCHTCStaging == true)
 
 # Tell HTCondor to run 1 instances of our job:
-queue file from input/islet_input_files.txt
+queue run_id,path,file,tissue from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_1.txt

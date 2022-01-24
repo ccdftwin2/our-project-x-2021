@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras import layers
 
-def flex_nn_model(gene_input_shape, l2_r=0.5, drop_out_rates, act, num_layers, size_layers):
+def flex_nn_model(gene_input_shape, l2_r, drop_out_rates, act, num_layers, size_layers):
     
     gene_encoder = layers.Input(shape=gene_input_shape, name='gene_input')
     tmp = gene_encoder

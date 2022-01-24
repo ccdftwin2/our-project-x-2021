@@ -23,22 +23,19 @@ mkdir $ENVDIR
 # First, copy the compressed tar file from /staging into the working directory,
 #  and un-tar it to reveal your large input file(s) or directories:
 # cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
-cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual/$1.tar.gz ./
+cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual/$4.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
-tar -xzf $1.tar.gz
+tar -xzf $4.tar.gz
 tar -xzf $ENVNAME.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
-echo $1
-echo $2
-echo $3
 # Run the Python script, the 1,2, ... are the arguments from the .sub file
-python3 flex_NN.py  $2 $3 $4 $5 $6 $7 $8 $9 $10 $11 $12 $13 $14 $15 $16 $17 $18 $19 $20
+python3 flex_NN.py $1 $2 $3 $4
 
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
-rm $1.tar.gz ./$1/* 
-rm -rf ./$1
+rm $4.tar.gz ./$4/* 
+rm -rf ./$4
 rm $ENVNAME.tar.gz
 rm -rf ./$ENVDIR
 

@@ -1,0 +1,5 @@
+adipose_1,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adipose/adipose_1,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adipose/adipose_1/adipose_1.in,adipose
+gas_2,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_2,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_2/gas_2.in,gas
+islet_3,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_3,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_3/islet_3.in,islet
+liver_4,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_4,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_4/liver_4.in,liver
+kidney_5,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kidney/kidney_5,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kidney/kidney_5/kidney_5.in,kidney

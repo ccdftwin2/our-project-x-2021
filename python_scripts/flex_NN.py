@@ -22,7 +22,7 @@ cwd = os.getcwd()
 #from file2 import function2, function3
 
 # For the toy dataprocessing
-from individual_preprocess import toy_preprocess
+from individual_preprocess import preprocess_cv
 from toy_preprocess import five_tissues_preprocess,five_tissues_preprocess_cv
 
 # For the toy model script
@@ -61,38 +61,46 @@ patience = 3
 act = "linear"
 
 # Get the arguments
-if __name__ == "__main__":
+if __name__ == "__main__":	
+    run_id = str(sys.argv[1])
+    path = str(sys.argv[2])
+    tissue = str(sys.argv[4])
+    file_in = str(sys.argv[3])
+
     #print(f"Arguments count: {len(sys.argv)}")
     #for i, arg in enumerate(sys.argv):
     #    print(f"Argument {i:>6}: {arg}")
-    data_genes = str(sys.argv[1])
-    data_gluc = str(sys.argv[2])
-    data_sex = str(sys.argv[3])
-    momentum = float(sys.argv[4])
-    l2_r = float(sys.argv[5])
-    batch_size = int(sys.argv[6])
-    learning_rate = float(sys.argv[7])
-    my_opt = str(sys.argv[8])
-    num_layers = int(sys.argv[9])
-    run_id = str(sys.argv[10])
-    patience = int(sys.argv[11])
+
+my_file_in = open(run_id + ".in","r")
+args = my_file_in.readline().split(',')
+organ = str(args[0])
+data_genes = str(args[1])
+data_gluc = str(args[2])
+data_sex = str(args[3])
+momentum = float(args[4])
+l2_r = float(args[5])
+batch_size = int(args[6])
+learning_rate = float(args[7])
+my_opt = str(args[8])
+num_layers = int(args[9])
+pat = int(args[10])
+run_id = str(args[11])
 
 # Get the size of layers and drop out rates
-    for i in range(num_layers):
-        size_layers.append(int(sys.argv[12+i]))
-    for i in range(num_layers):
-        drop_out_rates.append(int(sys.argv[12+num_layers+i]))
+for i in range(num_layers):
+    size_layers.append(int(args[12+i]))
+for i in range(num_layers):
+    drop_out_rates.append(float(args[12+num_layers+i]))
     
 print("Run id:", run_id)
 ########### TODO: Read in the arguments from the CHTC script. ###########################################
 # This will be important for hyperparameter tuning. No arguments for toy script.
-
 # TODO: Run the preprocessing script to get the dataset
 # The data paths will be IN THE CURRENT WORKING DIRECTORY (see toy.sh)
 # Will have lots of outputs if using cross-validation
 
 X, y , sex , indices \
-    = preprocess_cv(cwd + data_genes, cwd + data_gluc, cwd + data_sex)
+    = preprocess_cv(cwd + "/"+tissue+"/"+data_genes, cwd +"/" +tissue+"/"+  data_gluc, cwd +"/"+tissue+"/"+ data_sex)
 #########################################################################################################
 
 
@@ -111,7 +119,7 @@ metrics = [
 ########################################################################################################
 
 ############# Train the model TODO #####################################################################
-callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
+callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=pat)
 callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 
 
@@ -157,14 +165,9 @@ for j,index in enumerate(indices):
 results = np.array(results)
 print("loss:", np.mean(results[:,0]),"abs%:", np.mean(results[:,1]),
 "spearman:", np.mean(results[:,2]),"pearson:", np.mean(results[:,3]))
-
-with open(run_id+".csv", 'w+') as f:
-    # create the csv writer
-    writer = csv.writer(f)
-    writer.writerow(np.round(np.mean(results,axis=0),4))
-    for res in results:
-        writer.writerow(np.round(res,4))
-
+print(np.round(np.mean(results,axis=0),4))
+for res in results:
+    print(writer.writerow(np.round(res,4)))
     # write a row to the csv file
 ########################################################################################################
 
