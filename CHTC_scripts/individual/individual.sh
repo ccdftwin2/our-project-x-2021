@@ -49,5 +49,3 @@ rm -rf ./$ENVDIR
 # python3 hello.py
 # END MANAGE LARGE OUTPUT FILES
 
-
-END

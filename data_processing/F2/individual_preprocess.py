@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 
 def preprocess_cv(path_to_exp, path_to_glucose, path_to_sex):
-    X = pd.read_csv(path_to_exp).to_numpy(dtype=float)
-    y = pd.read_csv(path_to_glucose,header=None).to_numpy(dtype=float)[:,-1]
+    X = pd.read_csv(path_to_exp).to_numpy(dtype=float)[:,1:]
+    y = pd.read_csv(path_to_glucose,header=None).to_numpy(dtype=float)
     sex = pd.read_csv(path_to_sex,header=None).to_numpy(dtype=float)
     print(y.shape, sex.shape,X.shape)
     # Cross Validation

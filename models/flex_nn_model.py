@@ -11,7 +11,7 @@ def flex_nn_model(gene_input_shape, l2_r, drop_out_rates, act, num_layers, size_
         cur = layers.Dropout(drop_out_rates[i])(cur)
         tmp = cur
         
-    output = layers.Dense(1, activation=act)(tmp)
+    output = layers.Dense(4, activation=act)(tmp)
     # Encoder gene expression data
     model = tf.keras.Model(inputs=[gene_encoder], outputs=[output])
  

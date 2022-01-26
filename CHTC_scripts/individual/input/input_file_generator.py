@@ -46,6 +46,8 @@ for tissue in tissues:
                                     # write the file names
                                     if tissue == "adipose":
                                         tmp = "adi"
+                                    elif tissue == "kidney":
+                                        tmp = "kid"
                                     else:
                                         tmp = tissue
                                     f.write(tmp + "_filled.csv,")

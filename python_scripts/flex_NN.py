@@ -29,7 +29,7 @@ from toy_preprocess import five_tissues_preprocess,five_tissues_preprocess_cv
 from flex_nn_model import flex_nn_model
 
 # For the toy evaluations scripts
-from toy_eval import pearson_corr, spearman_rankcor
+from toy_eval import pearson_corr, spearman_rankcor, spearman_four
 
 # Change back to the current working directory
 os.chdir(cwd)
@@ -165,10 +165,27 @@ for j,index in enumerate(indices):
 results = np.array(results)
 print("loss:", np.mean(results[:,0]),"abs%:", np.mean(results[:,1]),
 "spearman:", np.mean(results[:,2]),"pearson:", np.mean(results[:,3]))
-print(np.round(np.mean(results,axis=0),4))
-for res in results:
-    print(writer.writerow(np.round(res,4)))
-    # write a row to the csv file
+
+parent = os.getcwd() + "/" + "results"
+if not os.path.exists(parent):
+    os.mkdir(parent)
+path = os.path.join(parent, tissue)
+if not os.path.exists(path):
+    os.mkdir(path)
+
+tmp_out = sys.stdout
+f = open(path + "/"+run_id + ".res", "w")
+sys.stdout = f
+print("loss:", np.mean(results[:,0]),"abs%:", np.mean(results[:,1]),"spearman:", np.mean(results[:,2]),"pearson:", np.mean(results[:,3]))
+sys.stdout = tmp_out
+f.close()
+
+with open(path + "/" + run_id + ".csv", 'w+') as f:
+   # create the csv writer
+    writer = csv.writer(f)
+    writer.writerow(np.round(np.mean(results,axis=0),4))
+    for res in results:
+        writer.writerow(np.round(res,4))
 ########################################################################################################
 
 ########################################################################################################
