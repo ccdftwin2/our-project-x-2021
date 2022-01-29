@@ -39,8 +39,8 @@ try:
     # Disable all GPUS
     tf.config.set_visible_devices([], 'GPU')
     visible_devices = tf.config.get_visible_devices()
-    for device in visible_devices:
-        assert device.device_type != 'GPU'
+#    for device in visible_devices:
+#        assert device.device_type != 'GPU'
 except:
     # Invalid device or cannot modify virtual devices once initialized.
     pass
@@ -99,67 +99,70 @@ print("Run id:", run_id)
 # The data paths will be IN THE CURRENT WORKING DIRECTORY (see toy.sh)
 # Will have lots of outputs if using cross-validation
 
-X, y , sex , indices \
-    = preprocess_cv(cwd + "/"+tissue+"/"+data_genes, cwd +"/" +tissue+"/"+  data_gluc, cwd +"/"+tissue+"/"+ data_sex)
-#########################################################################################################
+mirrored_strategy = tf.distribute.MirroredStrategy()
+
+with mirrored_strategy.scope():
+    X, y , sex , indices \
+        = preprocess_cv(cwd + "/"+tissue+"/"+data_genes, cwd +"/" +tissue+"/"+  data_gluc, cwd +"/"+tissue+"/"+ data_sex)
+    #########################################################################################################
 
 
-################ TODO: Import the model by calling a model function in models folder ####################
-gene_input_shape = (len(X[0]),)
-model = flex_nn_model(gene_input_shape, l2_r, drop_out_rates, act, num_layers, size_layers)
-#########################################################################################################
+    ################ TODO: Import the model by calling a model function in models folder ####################
+    gene_input_shape = (len(X[0]),)
+    model = flex_nn_model(gene_input_shape, l2_r, drop_out_rates, act, num_layers, size_layers)
+    #########################################################################################################
 
 
-#### TODO: Define the metrics we want to fit to (useful for tensorflow and non-tensorflow models) #######
-metrics = [
-         "MeanAbsolutePercentageError",
-         spearman_rankcor,
-         pearson_corr
-        ]
-########################################################################################################
+    #### TODO: Define the metrics we want to fit to (useful for tensorflow and non-tensorflow models) #######
+    metrics = [
+             "MeanAbsolutePercentageError",
+             spearman_rankcor,
+             pearson_corr
+            ]
+    ########################################################################################################
 
-############# Train the model TODO #####################################################################
-callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=pat)
-callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
+    ############# Train the model TODO #####################################################################
+    callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=pat)
+    callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 
 
-results = []
-# Cross validation code
-for j,index in enumerate(indices):
+    results = []
+    # Cross validation code
+    for j,index in enumerate(indices):
 
-    print("CV:",j,"------------------------------------")
+        print("CV:",j,"------------------------------------")
 
-    X_train = np.array([X[i] for i in index[0]])
-    y_train = np.array([y[i] for i in index[0]])
+        X_train = np.array([X[i] for i in index[0]])
+        y_train = np.array([y[i] for i in index[0]])
 
-    X_test = np.array([X[i] for i in index[1]])
-    y_test = np.array([y[i] for i in index[1]])
-    
-    # Choose between different optimizers
-    if my_opt == "adam":
-        model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.Adam(learning_rate), \
-	     metrics=metrics)
-    if my_opt == "adagrad":
-        model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.Adagrad(learning_rate), \
-	     metrics=metrics)
-    if my_opt == "RMSprop":
-        model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.RMSprop(learning_rate), \
-	     metrics=metrics)
+        X_test = np.array([X[i] for i in index[1]])
+        y_test = np.array([y[i] for i in index[1]])
+        
+        # Choose between different optimizers
+        if my_opt == "adam":
+            model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.Adam(learning_rate), \
+             metrics=metrics)
+        if my_opt == "adagrad":
+            model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.Adagrad(learning_rate), \
+             metrics=metrics)
+        if my_opt == "RMSprop":
+            model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.RMSprop(learning_rate), \
+             metrics=metrics)
 
-    # fit the model
-    model.fit(X_train, y_train, 
-              epochs=100, batch_size=batch_size, verbose=1, 
-              #validation_data=(X_val,y_val),
-              validation_split = 0.15,
-              callbacks=[callback_train,callback_val]
-              )
+        # fit the model
+        model.fit(X_train, y_train, 
+                  epochs=100, batch_size=batch_size, verbose=1, 
+                  #validation_data=(X_val,y_val),
+                  validation_split = 0.15,
+                  callbacks=[callback_train,callback_val]
+                  )
 
-    ####################################################################################################
-    # Evaluate the model after training. TODO
-    # Printing things will direct output to the .out file you specified in the CHTC submit script.
-    print("BEGIN testing-------------------")
-    test_results = model.evaluate(X_test, y_test, verbose=1)
-    results.append(test_results)
+        ####################################################################################################
+        # Evaluate the model after training. TODO
+        # Printing things will direct output to the .out file you specified in the CHTC submit script.
+        print("BEGIN testing-------------------")
+        test_results = model.evaluate(X_test, y_test, verbose=1)
+        results.append(test_results)
 
 # save results
 results = np.array(results)

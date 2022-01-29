@@ -1,0 +1,12 @@
+islet_10,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_10,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_10/islet_10.in,islet
+islet_11,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_11,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_11/islet_11.in,islet
+islet_12,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_12,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_12/islet_12.in,islet
+islet_13,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_13,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_13/islet_13.in,islet
+islet_14,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_14,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_14/islet_14.in,islet
+islet_15,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_15,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_15/islet_15.in,islet
+islet_16,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_16,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_16/islet_16.in,islet
+islet_17,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_17,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_17/islet_17.in,islet
+islet_18,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_18,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_18/islet_18.in,islet
+islet_19,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_19,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_19/islet_19.in,islet
+islet_20,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_20,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_20/islet_20.in,islet
+islet_21,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_21,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_21/islet_21.in,islet

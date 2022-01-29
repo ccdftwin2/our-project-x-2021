@@ -15,7 +15,7 @@ log = $(path)/$(run_id).log
 #  and increasing for the relevant number of jobs.
 #  TODO: If you don't want your working directory to be clogged, make your own file output directory
 executable = individual.sh
-arguments = $(run_id) $(path) $(file) $(tissue)
+arguments = $(run_id) $(path) $(file) $(tissue) $(num_tis)
 output = $(path)/$(run_id).out
 error = $(path)/$(run_id).err
 
@@ -27,16 +27,16 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # LIST ABSOLUTE PATH OF ALL THE PYTHON FILES YOU NEED TO HERE TODO
-transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/individual_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py, /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/$(tissue)/$(run_id)/$(run_id).in
+transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/individual_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py, /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/$(tissue)/$(run_id)/$(run_id).in,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_multg.py,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_sing.py
 
 # TODO#: Tell HTCondor what amount of compute resources
 
 +WantGPULab = true
 +GPUJobLength = "short"
 
-request_gpus = 1
+request_gpus = 4
 request_cpus = 8
-request_memory = 100GB
+request_memory = 50GB
 request_disk = 20GB
 
 # DONT CHANGE BUT NEEDED
@@ -44,4 +44,4 @@ request_disk = 20GB
 Requirements = (Target.HasCHTCStaging == true)
 
 # Tell HTCondor to run 1 instances of our job:
-queue run_id,path,file,tissue from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_1.txt
+queue run_id,path,file,tissue,num_tis from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_net.txt

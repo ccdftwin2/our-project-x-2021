@@ -1,22 +1,24 @@
 # List the tissues
 import os
-tissues = ["adipose", "gas", "islet", "liver", "kidney"]
-run_id_base = 1
+tissues = ["adi", "gas", "islet", "liver", "kid"]
+tissues = ["adi", "islet"]
+run_id_base = 40
 run_id_count = 0
-network_structures = [[1000, 1000, 500, 100]]
+network_structures = [[20000, 10000, 5000, 1000, 200], [20000, 20000, 10000, 5000, 1000, 200],[20000,  10000, 1000, 200]]
 momentums = [0.9]
-l2_rs = [0.5]
+l2_rs = [0.3]
 batch_sizes = [100]
-learning_rates = [0.01]
+learning_rates = [0.0001, 0.00001, 0.00005]
 optimizers = ["adam"]
 num_layers = [len(net) for net in network_structures]
 patiences = [3]
-dropout_rates = [[0.3,0.3,0.1,0]]
-list_of_file_names = "test_1.txt" # this is the file you put into the .sub file queue statement
+dropout_rates = [[0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.1]]
+list_of_file_names = "test_net.txt" # this is the file you put into the .sub file queue statement
 g = open(list_of_file_names,"w")
 for tissue in tissues:
     # loop through the network structures
-    for structure in network_structures:
+    num_tis = 1
+    for z in range(1):
         # momentum
         for momentum in momentums:
             # l2_rs
@@ -44,12 +46,7 @@ for tissue in tissues:
                                     f.write(tissue)
                                     f.write(",")
                                     # write the file names
-                                    if tissue == "adipose":
-                                        tmp = "adi"
-                                    elif tissue == "kidney":
-                                        tmp = "kid"
-                                    else:
-                                        tmp = tissue
+                                    tmp = tissue
                                     f.write(tmp + "_filled.csv,")
                                     f.write(tmp + "_filled_glucose.csv,")
                                     f.write(tmp + "_filled_sex.csv,")
@@ -62,11 +59,13 @@ for tissue in tissues:
                                     f.write(str(patience) + ",")
                                     f.write(file_name)
                                     for j in range(num_layers[i]):
-                                        f.write("," + str(structure[j]))
+                                        f.write("," + str(network_structures[i][j]))
                                     for j in range(num_layers[i]):
                                         f.write("," + str(dropout_rates[i][j]))
                                     f.close()
                                     run_id_count +=1
 
-                                    g.write(file_name + "," +path+","+ path + "/" + file_name + ".in,"+tissue + "\n")
+                                    g.write(file_name + "," +path+","+ path + "/" + file_name + ".in,"+tissue + "," + str(num_tis) + "\n")
+                                    num_tis += 1
+                                    num_tis = num_tis % 6
 g.close()
