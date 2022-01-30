@@ -6,6 +6,7 @@
 #  for almost all jobs) and your desired name of the HTCondor log file,
 #  which is where HTCondor will describe what steps it takes to run 
 universe = vanilla
+
 log = $(path)/$(run_id).log
 
 # TODO: Specify your executable (single binary or a script that runs several
@@ -44,4 +45,4 @@ request_disk = 20GB
 Requirements = (Target.HasCHTCStaging == true)
 
 # Tell HTCondor to run 1 instances of our job:
-queue run_id,path,file,tissue,num_tis from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_net.txt
+queue run_id,path,file,tissue,num_tis from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_kid_liv.txt
