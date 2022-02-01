@@ -1,7 +1,7 @@
 # List the tissues
 mode = 0 # one for output process, 2 for input
 import os
-tissues = ["kid"]
+tissues = ["liver"]
 run_id_base = 200
 run_id_count = 0
 network_structures = [[25000,  15000, 1000, 200]]
@@ -14,11 +14,11 @@ num_layers = [len(net) for net in network_structures]
 patiences = [3]
 dropout_rates = [[0.25,0.25,0.25,0.1]]
 
-list_of_file_names = "final_kidney.txt" # this is the file you put into the .sub file queue statement
+list_of_file_names = "final_liver_lh.txt" # this is the file you put into the .sub file queue statement
 g = open(list_of_file_names,"w")
 for tissue in tissues:
     # loop through the network structures
-    num_tis = 2
+    num_tis = 3
     for z in range(1):
         # momentum
         for momentum in momentums:

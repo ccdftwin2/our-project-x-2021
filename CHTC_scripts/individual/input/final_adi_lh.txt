@@ -1,0 +1,1 @@
+adi_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adi/adi_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adi/adi_200/adi_200.in,adi,3

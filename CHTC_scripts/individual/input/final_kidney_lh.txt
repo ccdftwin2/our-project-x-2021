@@ -1,0 +1,1 @@
+kid_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kid/kid_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kid/kid_200/kid_200.in,kid,3
