@@ -25,13 +25,15 @@ mkdir $ENVDIR
 # cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual_lin/$4_$5.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
+cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual_lin/pkl.tar.gz ./
 tar -xzf $4_$5.tar.gz
+tar -xzf pkl.tar.gz
 tar -xzf $ENVNAME.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
 # Run the Python script, the 1,2, ... are the arguments from the .sub file
-python3 flex_NN_multg.py $1 $2 $3 $4
+python3 final_mult.py $1 $2 $3 $4
 
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
 rm $4_$5.tar.gz ./$4_$5/* 

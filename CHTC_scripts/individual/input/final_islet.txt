@@ -1,0 +1,1 @@
+islet_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_200/islet_200.in,islet,1

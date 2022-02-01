@@ -1,11 +1,10 @@
 # List the tissues
 mode = 0 # one for output process, 2 for input
 import os
-tissues = ["adi", "gas", "islet", "liver", "kid"]
-tissues = ["kid", "liver"]
-run_id_base = 60
+tissues = ["kid"]
+run_id_base = 200
 run_id_count = 0
-network_structures = [[17000, 10000, 5000, 1000, 200], [23000, 10000, 5000, 1000, 200],[26000, 10000, 5000, 1000, 200], [20000, 25000, 15000, 5000, 1000, 200],[25000, 20000, 10000, 5000, 1000, 200],[30000, 20000, 10000, 5000, 1000, 200],[15000,  10000, 1000, 200],[25000,  15000, 5000, 200],[30000,  15000, 1000, 200]]
+network_structures = [[25000,  15000, 1000, 200]]
 momentums = [0.9]
 l2_rs = [0.3]
 batch_sizes = [100]
@@ -13,12 +12,13 @@ learning_rates = [0.0001]
 optimizers = ["adam"]
 num_layers = [len(net) for net in network_structures]
 patiences = [3]
-dropout_rates = [[0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.1],[0.25,0.25,0.25,0.1]]
-list_of_file_names = "test_kid_liv.txt" # this is the file you put into the .sub file queue statement
+dropout_rates = [[0.25,0.25,0.25,0.1]]
+
+list_of_file_names = "final_kidney.txt" # this is the file you put into the .sub file queue statement
 g = open(list_of_file_names,"w")
 for tissue in tissues:
     # loop through the network structures
-    num_tis = 1
+    num_tis = 2
     for z in range(1):
         # momentum
         for momentum in momentums:
@@ -69,7 +69,7 @@ for tissue in tissues:
 
                                         g.write(file_name + "," +path+","+ path + "/" + file_name + ".in,"+tissue + "," + str(num_tis) + "\n")
                                         num_tis += 1
-                                        num_tis = num_tis % 7
+                                        num_tis = num_tis % 5
                                         if num_tis == 0:
                                             num_tis = 1
                                     else:
@@ -85,7 +85,7 @@ for tissue in tissues:
                                             output.close()
 
                                         num_tis += 1
-                                        num_tis = num_tis % 7
+                                        num_tis = num_tis % 5
                                         if num_tis == 0:
                                             num_tis = 1
                                         run_id_count +=1

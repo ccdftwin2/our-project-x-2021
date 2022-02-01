@@ -1,0 +1,1 @@
+gas_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_200/gas_200.in,gas,1

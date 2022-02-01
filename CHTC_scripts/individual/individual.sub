@@ -28,7 +28,7 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # LIST ABSOLUTE PATH OF ALL THE PYTHON FILES YOU NEED TO HERE TODO
-transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/individual_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py, /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/$(tissue)/$(run_id)/$(run_id).in,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_multg.py,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_sing.py
+transfer_input_files = /home/cfrink/projectX_base/ProjectX2021/python_scripts/final_mult.py, /home/cfrink/projectX_base/ProjectX2021/models/flex_nn_model.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/final_individual.py, /home/cfrink/projectX_base/ProjectX2021/data_processing/F2/toy/toy_preprocess.py, /home/cfrink/projectX_base/ProjectX2021/evaluations/toy_eval.py, /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/$(tissue)/$(run_id)/$(run_id).in,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_multg.py,/home/cfrink/projectX_base/ProjectX2021/python_scripts/flex_NN_sing.py
 
 # TODO#: Tell HTCondor what amount of compute resources
 
@@ -45,4 +45,4 @@ request_disk = 20GB
 Requirements = (Target.HasCHTCStaging == true)
 
 # Tell HTCondor to run 1 instances of our job:
-queue run_id,path,file,tissue,num_tis from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/test_kid_liv.txt
+queue run_id,path,file,tissue,num_tis from /home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/final_kidney.txt

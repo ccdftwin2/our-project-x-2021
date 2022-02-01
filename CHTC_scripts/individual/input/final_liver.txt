@@ -1,0 +1,1 @@
+liver_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_200,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_200/liver_200.in,liver,1
