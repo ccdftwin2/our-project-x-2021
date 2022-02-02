@@ -4,3 +4,7 @@ probably be subfolders listed below for different organs, normalizations, etc.
 ##############################################################################
 
 toy: folder for the data preprocessing function required for the toy model.
+
+final_individual.py: generates train/test split for NN.
+
+individual_preprocess.py: generates cross-validation splits for hyperparameter tuning.
