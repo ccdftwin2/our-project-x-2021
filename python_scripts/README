@@ -6,3 +6,13 @@ evaluation metrics that are run in these scripts.
 ###############################################################
 
 toy_script: Example script for the toy model.
+
+flex_NN_multg.py: CV hyperparameter tuning driver, with multiple gpus enabled.
+
+flex_NN_sing.py: CV hyperparameter tuning driver, with single gpu enabled.
+
+flex_NN.py: CV hyperparameter tuning, no gpu.
+
+final_mult.py: Contains driver for final train/test models, also contains module permutation code.
+
+other files: not used for model results.
