@@ -4,9 +4,9 @@ takes in the file path to the data set in csv and converts it to whatever input
 is needed for the training function.
 ##############################################################################
 
-F2: Datasets regarding the F2 mice
+F2: Datasets regarding the F2 mice.
 
-parents: Dataset pre-processing for the data related to the parents
+parents: Dataset pre-processing for the data related to the parents. Not used for any results.
 
 
 
