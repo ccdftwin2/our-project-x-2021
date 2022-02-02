@@ -1,7 +1,5 @@
 # ProjectX2021
 
-## Usage
-
 ## Folders
 
 CHTC_scripts: Manages the scripts necessary to integrate our python code with the CHTC system.
@@ -13,3 +11,5 @@ data_processing: Contains the functions necessary to process the cleaned data an
 models: Contains the functions that create the tensorflow models
 
 python_scripts: Contains the driver python scripts that collect and process the data, create the model, and train/test the models.
+
+git_files_ourproject: Contains other data_processing files, and kNN submission files.
