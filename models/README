@@ -7,4 +7,8 @@ to datasets in these models. A overall script can manage choosing the dataset(s)
 model(s), and evaluation methods.
 #####################################################
 
+flex_nn_model.py: final "model funciton": generates model based on given number of layers, layer sizes,
+dropout rates, activations funcitons, and l2 parameter per layers.
 
+
+*.py: Old models, not used for submitted results.
