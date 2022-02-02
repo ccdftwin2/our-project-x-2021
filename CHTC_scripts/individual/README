@@ -1,0 +1,12 @@
+# README 
+
+input: Contains the paths of all the input files, as well as the paths of the eventual files for 
+the outputs of each run.
+
+*.pkl: Pickle files for the modules 
+
+individual.sh: Executable that is run in the .sub file. Also manages large datasets via staging filesystem.
+
+individual.sub: HTCondor submit script. See https://research.cs.wisc.edu/htcondor/ tutorials for more information.
+
+clean.sh: Cleaning script in case filesystems get messy.
