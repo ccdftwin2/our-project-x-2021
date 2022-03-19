@@ -13,5 +13,3 @@ models: Contains the functions that create the tensorflow models
 python_scripts: Contains the driver python scripts that collect and process the data, create the model, and train/test the models.
 
 git_files_ourproject: Contains other data_processing files, and kNN submission files. 
-
-test by lin
