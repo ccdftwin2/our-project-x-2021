@@ -1,4 +1,0 @@
-islet_10,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_10,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_10/islet_10.in,islet
-islet_11,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_11,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_11/islet_11.in,islet
-islet_12,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_12,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_12/islet_12.in,islet
-islet_13,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_13,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_13/islet_13.in,islet

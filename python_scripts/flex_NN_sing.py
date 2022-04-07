@@ -22,8 +22,9 @@ cwd = os.getcwd()
 #from file2 import function2, function3
 
 # For the toy dataprocessing
-from individual_preprocess import preprocess_cv
-from toy_preprocess import five_tissues_preprocess,five_tissues_preprocess_cv
+# from individual_preprocess import preprocess_cv
+# from toy_preprocess import five_tissues_preprocess,five_tissues_preprocess_cv
+from new_CV import preprocess_cv
 
 # For the toy model script
 from flex_nn_model import flex_nn_model
@@ -99,7 +100,7 @@ print("Run id:", run_id)
 # The data paths will be IN THE CURRENT WORKING DIRECTORY (see toy.sh)
 # Will have lots of outputs if using cross-validation
 
-X, y , sex , indices \
+X, y , indices, _ , _ \
     = preprocess_cv(cwd + "/"+tissue+"/"+data_genes, cwd +"/" +tissue+"/"+  data_gluc, cwd +"/"+tissue+"/"+ data_sex)
 #########################################################################################################
 

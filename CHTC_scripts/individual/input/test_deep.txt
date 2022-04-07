@@ -1,5 +1,0 @@
-adi_1,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adi/adi_1,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/adi/adi_1/adi_1.in,adi
-gas_2,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_2,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_2/gas_2.in,gas
-islet_3,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_3,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/islet/islet_3/islet_3.in,islet
-liver_4,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_4,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/liver/liver_4/liver_4.in,liver
-kid_5,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kid/kid_5,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/kid/kid_5/kid_5.in,kid

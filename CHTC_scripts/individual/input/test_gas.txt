@@ -1,4 +1,0 @@
-gas_100,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_100,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_100/gas_100.in,gas,1
-gas_101,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_101,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_101/gas_101.in,gas,2
-gas_102,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_102,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_102/gas_102.in,gas,3
-gas_103,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_103,/home/cfrink/projectX_base/ProjectX2021/CHTC_scripts/individual/input/gas/gas_103/gas_103.in,gas,4

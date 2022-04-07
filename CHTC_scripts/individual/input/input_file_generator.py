@@ -1,20 +1,31 @@
 # List the tissues
-mode = 0 # one for output process, 2 for input
+mode = 1 # one for output process, 2 for input
 import os
-tissues = ["liver"]
-run_id_base = 200
+import csv
+tissues = ["islet"]
+run_id_base = 500
 run_id_count = 0
-network_structures = [[25000,  15000, 1000, 200]]
+network_structures = [[25000,  15000, 1000, 200],[25000,  15000, 1000, 200],[25000,  15000, 1000, 200],
+                      [26000,  15000, 1000, 200],[26000,  15000, 1000, 200],[26000,  15000, 1000, 200],
+                      [27000,  15000, 1000, 200],[27000,  15000, 1000, 200],[27000,  15000, 1000, 200],
+                      [28000,  15000, 1000, 200],[28000,  15000, 1000, 200],[28000,  15000, 1000, 200],
+                      [29000,  15000, 1000, 200],[29000,  15000, 1000, 200],[29000,  15000, 1000, 200],
+                      [30000,  15000, 1000, 200],[30000,  15000, 1000, 200],[30000,  15000, 1000, 200]]
 momentums = [0.9]
 l2_rs = [0.3]
 batch_sizes = [100]
 learning_rates = [0.0001]
 optimizers = ["adam"]
 num_layers = [len(net) for net in network_structures]
-patiences = [3]
-dropout_rates = [[0.25,0.25,0.25,0.1]]
+patiences = [3,4]
+dropout_rates = [[0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
+                 [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
+                 [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
+                 [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
+                 [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
+                 [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1]]
 
-list_of_file_names = "final_liver_lh.txt" # this is the file you put into the .sub file queue statement
+list_of_file_names = "test_lin.txt" # this is the file you put into the .sub file queue statement
 g = open(list_of_file_names,"w")
 for tissue in tissues:
     # loop through the network structures
@@ -75,12 +86,15 @@ for tissue in tissues:
                                     else:
                                         if os.path.exists(tissue + "/" + file_name + "/" + file_name + ".out"):
                                             f = open(tissue + "/" + file_name + "/" + file_name + ".out", "r")
-                                            output = open("results_mult.txt", "a+")
-                                            output.write("Runid: " + file_name +", Network Structure" + str(network_structures[i]) +  ", LR: " + str(learning_rate)+ "\n")
+                                            #output = open("islet_mult.csv", "a+")
+                                            #output.write("Runid: " + file_name +", Network Structure" + str(network_structures[i]) +  ", LR: " + str(learning_rate)+ "\n")
                                             lines = f.readlines()
-                                            lastlines = lines[-7:]
-                                            output.write(lastlines[0])
-                                            output.write("\n")
+                                            lastlines = lines[-10:] # for a 9-way-CV sets
+                                            #output.write(lastlines[0])
+                                            #output.write("\n")
+                                            output = open("islet_mult.csv", "a+")
+                                            csvwriter =csv.writer(output, delimiter=',')
+                                            csvwriter.writerow(lastlines[0][:-1].split(',')+[file_name])
                                             f.close()
                                             output.close()
 

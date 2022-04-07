@@ -161,16 +161,17 @@ print("loss:", np.mean(results[:,0]),"abs%:", np.mean(results[:,1]),
 #    print(tmp_str)
 ########################################################################################################
 
-modules = pd.read_pickle(tissue+ "_indices.pkl")
-n_shuffle = 100
-discrepency = np.zeros((len(modules.keys()), n_shuffle, 4))
-for i,key in enumerate(modules.keys()):
-    print(key)
-    X_test_copy = X_test.copy()
-    for j in range(n_shuffle): # repeat two times
-        for col_index in modules[key]:
-            np.random.shuffle(X_test_copy[:,col_index])
-        result = np.array(model.evaluate(X_test_copy, y_test))
-        discrepency[i, j] = result
-np.set_printoptions(threshold=np.inf)
-print(discrepency)
+## for permutation and test
+#modules = pd.read_pickle(tissue+ "_indices.pkl")
+#n_shuffle = 100
+#discrepency = np.zeros((len(modules.keys()), n_shuffle, 4))
+#for i,key in enumerate(modules.keys()):
+#    print(key)
+#    X_test_copy = X_test.copy()
+#    for j in range(n_shuffle): # repeat two times
+#        for col_index in modules[key]:
+#            np.random.shuffle(X_test_copy[:,col_index])
+#        result = np.array(model.evaluate(X_test_copy, y_test))
+#        discrepency[i, j] = result
+#np.set_printoptions(threshold=np.inf)
+#print(discrepency)
