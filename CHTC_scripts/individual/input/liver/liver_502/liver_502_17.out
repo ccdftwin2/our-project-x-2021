@@ -1,0 +1,52 @@
+/var/lib/condor/execute/slot1/dir_62601
+_condor_stderr
+_condor_stdout
+bin
+checkpoint
+compiler_compat
+conda-meta
+condor_exec.exe
+cp.cpkt.data-00000-of-00001
+cp.cpkt.index
+flex_nn_model.py
+include
+lib
+licensing
+liver
+liver_1.tar.gz
+liver_502.in
+liver_indices.pkl
+module_details.py
+new_CV.py
+px
+px.tar.gz
+share
+ssl
+tmp
+toy_eval.py
+var
+x86_64-conda-linux-gnu
+x86_64-conda_cos6-linux-gnu
+/var/lib/condor/execute/slot1/dir_62601
+/var/lib/condor/execute/slot1/dir_62601
+Run id: liver_502
+(434, 1294) (434, 4) (49, 1294) (49, 4)
+1/2 [==============>...............] - ETA: 0s - loss: 14006.9404 - mean_absolute_percentage_error: 32.3675 - spearman_rankcor: 0.9000 - pearson_corr: 0.57822/2 [==============================] - ETA: 0s - loss: 15850.0332 - mean_absolute_percentage_error: 32.0482 - spearman_rankcor: 0.8500 - pearson_corr: 0.59352/2 [==============================] - 1s 107ms/step - loss: 15850.0332 - mean_absolute_percentage_error: 32.0482 - spearman_rankcor: 0.8500 - pearson_corr: 0.5935
+Test loss: 15850.033203125 abs%: 32.04816436767578 spearman: 0.8500000238418579 pearson: 0.5935254096984863
+1/2 [==============>...............] - ETA: 0s2/2 [==============================] - ETA: 0s2/2 [==============================] - 0s 58ms/step
+AAA
+49 [358.23398 487.59085 536.36646 563.05853]
+Week:  2
+0.3701020408163265
+0.49192291957438555
+Week:  4
+0.5387755102040815
+0.30287289165064835
+Week:  6
+0.6933673469387756
+0.240271923999318
+Week:  8
+0.706734693877551
+0.24685877207527523
+['red', 0.3701020408163265, 0.49192291957438555, 0.5387755102040815, 0.30287289165064835, 0.6933673469387756, 0.240271923999318, 0.706734693877551, 0.24685877207527523]
+/var/lib/condor/execute/slot1/dir_62601

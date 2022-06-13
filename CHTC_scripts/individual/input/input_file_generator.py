@@ -1,8 +1,8 @@
 # List the tissues
-mode = 1 # one for output process, 2 for input
+mode = 0 # 1 for output process, 0 for input
 import os
 import csv
-tissues = ["islet"]
+tissues = ["kid"]
 run_id_base = 500
 run_id_count = 0
 network_structures = [[25000,  15000, 1000, 200],[25000,  15000, 1000, 200],[25000,  15000, 1000, 200],
@@ -25,7 +25,7 @@ dropout_rates = [[0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
                  [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1],
                  [0.25,0.25,0.25,0.1],[0.2,0.2,0.2,0.1],[0.15,0.15,0.15,0.1]]
 
-list_of_file_names = "test_lin.txt" # this is the file you put into the .sub file queue statement
+list_of_file_names = "/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/input_files/kid_input.txt" # this is the file you put into the .sub file queue statement
 g = open(list_of_file_names,"w")
 for tissue in tissues:
     # loop through the network structures
@@ -84,15 +84,15 @@ for tissue in tissues:
                                         if num_tis == 0:
                                             num_tis = 1
                                     else:
-                                        if os.path.exists(tissue + "/" + file_name + "/" + file_name + ".out"):
-                                            f = open(tissue + "/" + file_name + "/" + file_name + ".out", "r")
+                                        if os.path.exists(tissue + "/" + file_name + "/" + file_name + "_test.out"):
+                                            f = open(tissue + "/" + file_name + "/" + file_name + "_test.out", "r")
                                             #output = open("islet_mult.csv", "a+")
                                             #output.write("Runid: " + file_name +", Network Structure" + str(network_structures[i]) +  ", LR: " + str(learning_rate)+ "\n")
                                             lines = f.readlines()
                                             lastlines = lines[-10:] # for a 9-way-CV sets
                                             #output.write(lastlines[0])
                                             #output.write("\n")
-                                            output = open("islet_mult.csv", "a+")
+                                            output = open("./adi_result.csv", "a+")
                                             csvwriter =csv.writer(output, delimiter=',')
                                             csvwriter.writerow(lastlines[0][:-1].split(',')+[file_name])
                                             f.close()

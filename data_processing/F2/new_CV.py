@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 import random
+import numpy as np
 
 def preprocess_cv(path_to_exp, path_to_glucose, path_to_sex):
 
@@ -8,7 +9,7 @@ def preprocess_cv(path_to_exp, path_to_glucose, path_to_sex):
     X = pd.read_csv(path_to_exp).to_numpy(dtype=float)[:,1:]
     y = pd.read_csv(path_to_glucose,header=None).to_numpy(dtype=float)
     sex = pd.read_csv(path_to_sex,header=None).to_numpy(dtype=float)
-    print(y.shape, sex.shape,X.shape)
+    #print(y.shape, sex.shape,X.shape)
     
     ## Cross Validation
     random.seed(2022)
@@ -17,15 +18,15 @@ def preprocess_cv(path_to_exp, path_to_glucose, path_to_sex):
     indices_cv,indices_final_test = next(skf_train_test.split(X,sex))
     
     # generate data for final testing, that should not be touched when training
-    X_final_test = [X[i] for i in indices_final_test]
+    X_final_test = np.array([X[i] for i in indices_final_test])
     sex_final_test = [sex[i] for i in indices_final_test]
-    y_final_test = [y[i] for i in indices_final_test]
+    y_final_test = np.array([y[i] for i in indices_final_test])
     
     # Cross Validation set for training process
     skf_train_val = StratifiedKFold(n_splits=9, shuffle=False)
-    X_train = [X[i] for i in indices_cv]
+    X_train = np.array([X[i] for i in indices_cv])
     sex_train = [sex[i] for i in indices_cv]
-    y_train = [y[i] for i in indices_cv]
+    y_train = np.array([y[i] for i in indices_cv])
     
     for idx in skf_train_val.split(X_train,sex_train):
         indices.append(idx)

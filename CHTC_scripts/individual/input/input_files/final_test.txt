@@ -1,0 +1,1 @@
+liver_502,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/liver/liver_502,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/liver/liver_502/liver_502.in,liver,1

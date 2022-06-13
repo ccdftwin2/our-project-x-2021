@@ -1,0 +1,8 @@
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,29
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,30
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,31
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,32
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,33
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,34
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,35
+adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/adi/adi_501/adi_501.in,adi,4,36

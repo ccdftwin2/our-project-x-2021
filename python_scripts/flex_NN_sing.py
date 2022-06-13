@@ -196,8 +196,8 @@ for i in range(len(results)):
 # Save the Model Paths (optional, might be too much if we are looping over
 # hyper parameters)
 # TODO: SEE STAGING OUTPUT FILE INSTRUCTIONS
-# model_path = #TODO: Insert the place to save the weights if any
-# model.save_weights(os.path.join(model_path, "cp_ckpt"))
+# model_path = "/home/hlin324/our-project-x-2021/CHTC_scripts/individual/final_model/"#TODO: Insert the place to save the weights if any
+# model.save_weights(os.path.join(model_path, tissue+"_ckpt"))
 #######################################################################################################
 
 

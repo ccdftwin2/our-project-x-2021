@@ -25,22 +25,44 @@ mkdir $ENVDIR
 # cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/toy_fin.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual_lin/$4_$5.tar.gz ./
 cp /staging/groups/schrodi_group/ProjectX_2021/toy_model/$ENVDIR.tar.gz ./
-#cp /staging/groups/schrodi_group/ProjectX_2021/F2/individual_lin/pkl.tar.gz ./
+cp /staging/groups/schrodi_group/ProjectX_2021/indices/$4_indices.pkl ./
+
+# load the pre-trained network
+cp /staging/groups/schrodi_group/ProjectX_2021/model_weights/$4_$6_weights.tar.gz ./
+tar -xzf $4_$6_weights.tar.gz
+rm $4_$6_weights.tar.gz
+
 tar -xzf $4_$5.tar.gz
-#tar -xzf pkl.tar.gz
 tar -xzf $ENVNAME.tar.gz
 tar -xzf $ENVNAME.tar.gz -C $ENVDIR
 . $ENVDIR/bin/activate
 
+
+pwd
+ls
+
 # Run the Python script, the 1,2, ... are the arguments from the .sub file
-python3 flex_NN_multg.py $1 $2 $3 $4
+python3 module_details.py $1 $2 $3 $4 $6
 
 # TODO: Before the script exits, make sure to remove the file(s) from the working directory
+
 rm $4_$5.tar.gz 
 rm $ENVNAME.tar.gz
 rm -rf ./$ENVDIR
 #rm ./$4_$5/* 
 rm -rf ./$4_$5
+
+# save the network wrights
+#tar -czvf $4_$6_weights.tar.gz checkpoint cp.cpkt.data-00000-of-00001 cp.cpkt.index
+#mv $4_$6_weights.tar.gz /staging/groups/schrodi_group/ProjectX_2021/model_weights
+
+rm $4_indices.pkl
+rm checkpoint
+rm cp.cpkt.data-00000-of-00001
+rm cp.cpkt.index
+
+#mv $4_modules_details.csv /staging/groups/schrodi_group/ProjectX_2021/model_weights/
+#mv $4_modules.csv /staging/groups/schrodi_group/ProjectX_2021/model_weights/
 
 
 # END MANGE LARGE INPUT FILES

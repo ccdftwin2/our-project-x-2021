@@ -1,0 +1,5 @@
+islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520/islet_520.in,islet,3,8
+islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520/islet_520.in,islet,3,20
+islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520/islet_520.in,islet,3,23
+islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520/islet_520.in,islet,3,13
+islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520,/home/hlin324/our-project-x-2021/CHTC_scripts/individual/input/islet/islet_520/islet_520.in,islet,3,26

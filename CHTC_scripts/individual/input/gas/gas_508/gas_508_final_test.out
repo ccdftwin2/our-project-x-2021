@@ -1,0 +1,33 @@
+_condor_stderr
+_condor_stdout
+bin
+compiler_compat
+conda-meta
+condor_exec.exe
+flex_nn_model.py
+gas
+gas.cpkt.data-00000-of-00001
+gas.cpkt.index
+gas_3.tar.gz
+gas_508.in
+gas_indices.pkl
+gas_mod_weights.tar.gz
+include
+lib
+licensing
+new_CV.py
+permutate_test.py
+px
+px.tar.gz
+share
+ssl
+tmp
+toy_eval.py
+var
+x86_64-conda-linux-gnu
+x86_64-conda_cos6-linux-gnu
+/var/lib/condor/execute/slot1/dir_210179
+/var/lib/condor/execute/slot1/dir_210179
+Run id: gas_508
+(441, 31463) (441, 4) (49, 31463) (49, 4)
+/var/lib/condor/execute/slot1/dir_210179
