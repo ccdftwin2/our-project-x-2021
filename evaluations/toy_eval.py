@@ -16,7 +16,7 @@ def spearman_four(y_true, y_pred):
   result = 0.0
   for i in range(4):
     result += spearmanr(y_true[:,i], y_pred[:,i])[0]
-  return result/4
+  return result/4.0
 def spearman_rankcor(y_true, y_pred):
-  return ( tf.py_function(spearman_four, [tf.cast(y_pred, tf.float32), 
-    tf.cast(y_true, tf.float32)], Tout = tf.float32) )
+  return ( tf.py_function(spearman_four, [tf.cast(y_pred, tf.float64), 
+    tf.cast(y_true, tf.float64)], Tout = tf.float64) )

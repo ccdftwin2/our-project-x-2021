@@ -109,8 +109,6 @@ X_train, y_train , _ , X_test , y_test \
 import pickle
 with open(os.path.join(cwd, tissue+'_indices.pkl'), 'rb') as f:
     modules = pickle.load(f)
-
-
 module = modules[list(modules.keys())[mod_index]]
 X_train = np.array([X_train[:,i] for i in module]).T
 X_test = np.array([X_test[:,i] for i in module]).T
@@ -136,7 +134,6 @@ callback_train = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=pat)
 callback_val = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 
 
-
 # Choose between different optimizers
 if my_opt == "adam":
     model.compile(loss='MeanSquaredError', optimizer=tf.keras.optimizers.Adam(learning_rate), \
@@ -158,10 +155,25 @@ model.fit(X_train, y_train,
     # Evaluate the model after training. TODO
     # Printing things will direct output to the .out file you specified in the CHTC submit script.
 
-test_results = model.evaluate(X_test, y_test, verbose=1)
-result = test_results
+test_result = model.evaluate(X_test, y_test, verbose=1)
 # save results
-print("Test loss:", result[0],"abs%:", result[1],"spearman:", result[2],"pearson:", result[3])
+
+from scipy.stats import spearmanr
+y_pred = np.array(model.predict(X_test, verbose=1))
+results = []
+for i in range(4):
+    print("Week: ", 2+i*2)
+    print(spearmanr(y_test[:,i], y_pred[:,i])[0])
+    print(np.mean(np.abs((y_test[:,i] - y_pred[:,i]) / y_test[:,i])))
+    results.append(spearmanr(y_test[:,i], y_pred[:,i])[0])
+    results.append(np.mean(np.abs((y_test[:,i] - y_pred[:,i]) / y_test[:,i])))
+print("spearman_four: ",spearman_four(y_test,y_pred))
+print("spearman_rankcor: ",spearman_rankcor(y_test,y_pred))
+print("Test loss ", " abs% ", " spearman ", " pearson ", "wk i spearman", "wk i abs")
+test_result[2] = spearman_four(y_test,y_pred)
+key = list(modules.keys())[mod_index]
+print([key]+test_result+list(results))
+#print([list(modules.keys())[mod_index]]+list(results))
 
 parent = os.getcwd() + "/" + "results"
 if not os.path.exists(parent):
@@ -183,5 +195,3 @@ print(cwd)
 #model_path = "/home/hlin324/our-project-x-2021/CHTC_scripts/individual/final_model"#TODO: Insert the place to save the weights if any
 model.save_weights(os.path.join(cwd, "cp.cpkt"))
 #######################################################################################################
-
-
